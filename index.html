@@ -1,0 +1,21 @@
+<form id="myForm">
+  <input type="text" name="Name" placeholder="Your Name" required>
+  <input type="email" name="Email" placeholder="Your Email" required>
+  <textarea name="Message" placeholder="Your Message"></textarea>
+  
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  const form = document.getElementById('myForm');
+  // Paste your Google Web App URL here
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzBtxMcybBpl7jhgqb9M8DWHgnlcTaM7eMCi5p25ZBUm07NbQFJPe_pHHXNI_pTGi8wmQ/exec'; 
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert('Galatoomaa!'))
+      .catch(error => console.error('Error!', error.message));
+  });
+</script>
