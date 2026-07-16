@@ -4,41 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  <style>
-    
-h1{
-  color:white;
-    text-align:center;
-}
-
-</style>
+    <style>
+        body {
+            background-color: greenyellow;
+        }
+        .mainc {
+            border: 2px solid;
+            border-color: blue;
+            background-color: rgb(227, 239, 238);
+            position: relative;
+            height: 850px;
+            width: 755px;
+            border-radius: 10px;
+        }  
+        .div1 {
+            position: absolute;
+            margin-top: 0px;
+            padding-top: 0px;
+            margin-left: 540px;
+            width: 180px;
+        }
+        .div2 {
+            position: absolute;
+            margin-bottom: 0px;
+            margin-top: 0px;
+            margin-left: 3px;
+            padding: 0px;
+            box-sizing: 0px;
+        }
+        .cont {
+            border: 1px solid;
+            position: relative;
+            height: 100px;
+            width: 755px;
+            border-radius: 5px;
+        }
+        .col1 { height: 470px; width: 275px; position: absolute; margin-left: 5px; margin-top: 20px; }
+        .col2 { height: 470px; width: 50px; position: absolute; margin-left: 283px; margin-top: 20px; }
+        .col3 { height: 470px; width: 50px; position: absolute; margin-left: 345px; margin-top: 20px; }
+        .col4 { height: 470px; width: 340px; position: absolute; margin-left: 410px; margin-top: 20px; }
+        .col11 { height: 20px; width: 275px; position: absolute; margin-left: 10px; }
+        .col22 { height: 20px; width: 50px; position: absolute; margin-left: 283px; }
+        .col33 { height: 20px; width: 50px; position: absolute; margin-left: 345px; }
+        .col44 { height: 20px; width: 340px; position: absolute; margin-left: 480px; }
+        input {
+            margin: 0px;
+        }
+        textarea {
+            margin: 0px;
+            padding: 0px;
+        }
+        #submit {
+            position: absolute;
+            margin-left: 200px;
+            margin-top: 620px;
+            background-color: rgb(9, 240, 163);
+            border-radius: 5px;
+            border-style: inset;
+            cursor: pointer;
+        }
+        #submit:hover {
+            background-color: rgb(216, 6, 76);
+            color: white;
+            box-shadow: inset;
+        }
+    </style>
 </head>
 <body>
-   <h1>hojii hojjettan asi irratti nuuf ergaa</h1>
-<form id="myForm">
-  <input type="text" name="Name" placeholder="Your Name" required>
-  <input type="email" name="Email" placeholder="Your Email" required>
-  <textarea name="Message" placeholder="Your Message"></textarea>
-  
-  <button type="submit">Submit</button>
-</form>
+    <div class="mainc">
+        <div class="cont">
+            <div class="div2">
+                <h4>W.A. PIRINTIINGII, PABLIISHIINGII FI PAAKEEJINGII MEELBAA<br>
+                ሜልባ ፕሪንቲንግ፤ ፓብሊሺንግ፤ እና ፓኬጂንግ አ.ማ<br>
+                MELBA PRINTING, PUBLISHING AND PACKAGING S.C.</h4>
+            </div>
+            <div class="div1">
+                CL/MPP/TD/001<br>
+                Issue No: 01<br>
+                Issue Date: 16/6/2026<br>
+                Daily Technical Inspection Checklist Page: 1 of 1
+            </div>
+        </div>
+        <h4>Department: -Technical Department</h4>
+        <h4 style="text-align: center;"><u>Daily Technical Inspection Checklist</u></h4>
 
-<script>
-  const form = document.getElementById('myForm');
-  // Paste your Google Web App URL here
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzBtxMcybBpl7jhgqb9M8DWHgnlcTaM7eMCi5p25ZBUm07NbQFJPe_pHHXNI_pTGi8wmQ/exec'; 
+        <div class="col11"><u>Inspection Item</u></div>
+        <div class="col22"><u>Ok</u></div>
+        <div class="col33"><u>Not</u></div>
+        <div class="col44"><u>Remarks</u></div>
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => alert('Galatoomaa!'))
-      .catch(error => console.error('Error!', error.message));
-  });
-</script>
+        <div class="col1">
+            <label>1.Machine cleanliness</label><br><br>
+            <label>2.Oil levels checked</label><br><br>
+            <label>3.Warning lights functioning</label><br><br>
+            <label>4.Oil levels checked</label><br><br>
+            <label>5.Machine cleanliness</label><br><br>
+            <label>6.Oil levels checked</label><br><br>
+            <label>7.Warning lights functioning</label><br><br>
+            <label>8.Oil levels checked</label><br><br>
+            <label>9.Machine cleanliness</label><br><br>
+            <label>10.Oil levels checked</label><br><br>
+            <label>11.Warning lights functioning</label><br><br>
+            <label>12.Oil levels checked</label><br><br>
+            <label>13.Machine cleanliness</label><br><br>
+            <label>14.Oil levels checked</label><br><br>
+            <label>15.Warning lights functioning</label><br><br>
+            <label>16.Oil levels checked</label><br><br>
+            <label>17.Oil levels checked</label>
+        </div>
 
+        <div class="col2">
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox">
+        </div>
+
+        <div class="col3">
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox"><br><br>
+            <input type="checkbox">
+        </div>
+
+        <div class="col4">
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+            <textarea style="width: 320px;height: 10px;"></textarea><br><br>
+        </div>
+        <input id="submit" type="submit" value="Submit Technical Checklist">
+    </div>
+
+    <script>
+        document.getElementById('submit').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // --- REPLACE THIS WITH YOUR DEPLOYED WEB APP URL ---
+            const WEB_APP_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+
+            // If you forgot to replace the placeholder
+            if (WEB_APP_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") {
+                alert("Please replace the placeholder URL with your actual Google Apps Script Deployment URL!");
+                return;
+            }
+
+            // Define the 17 checklist items
+            const items = [
+                "1. Machine cleanliness", "2. Oil levels checked", "3. Warning lights functioning",
+                "4. Oil levels checked", "5. Machine cleanliness", "6. Oil levels checked",
+                "7. Warning lights functioning", "8. Oil levels checked", "9. Machine cleanliness",
+                "10. Oil levels checked", "11. Warning lights functioning", "12. Oil levels checked",
+                "13. Machine cleanliness", "14. Oil levels checked", "15. Warning lights functioning",
+                "16. Oil levels checked", "17. Oil levels checked"
+            ];
+
+            // Collect inputs from the DOM using absolute layout patterns
+            const okCheckboxes = document.querySelectorAll('.col2 input[type="checkbox"]');
+            const notCheckboxes = document.querySelectorAll('.col3 input[type="checkbox"]');
+            const remarksTextareas = document.querySelectorAll('.col4 textarea');
+
+            const payloadData = [];
+
+            // Group input values dynamically
+            for (let i = 0; i < items.length; i++) {
+                let status = "Not Checked";
+                if (okCheckboxes[i].checked && notCheckboxes[i].checked) {
+                    status = "Conflict (Both Checked)";
+                } else if (okCheckboxes[i].checked) {
+                    status = "OK";
+                } else if (notCheckboxes[i].checked) {
+                    status = "Not OK";
+                }
+
+                payloadData.push({
+                    item: items[i],
+                    status: status,
+                    remarks: remarksTextareas[i].value.trim()
+                });
+            }
+
+            // Change button state during submission
+            const submitBtn = document.getElementById('submit');
+            submitBtn.value = "Submitting...";
+            submitBtn.disabled = true;
+
+            // Submit JSON payload to Google Sheet using Fetch API
+            fetch(WEB_APP_URL, {
+                method: "POST",
+                mode: "no-cors", // Required by Google Apps Script redirection
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ checklist: payloadData })
+            })
+            .then(() => {
+                alert("Inspection checklist submitted successfully!");
+                // Clear the form inputs on success
+                okCheckboxes.forEach(cb => cb.checked = false);
+                notCheckboxes.forEach(cb => cb.checked = false);
+                remarksTextareas.forEach(ta => ta.value = "");
+            })
+            .catch(error => {
+                console.error("Error submitting data:", error);
+                alert("An error occurred. Check your network or Apps Script setup.");
+            })
+            .finally(() => {
+                submitBtn.value = "Submit Technical Checklist";
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
