@@ -1,249 +1,676 @@
 
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-  
-        body{
-            background-color:#000080 ;
-            font-family: sans-serif;
-        }
-      .mainc{
-     border: 2px solid;
-     border-color: blue;
-     background-color:rgb(227, 239, 238);
-    position: relative;
-height: 900px;
-width: 755px;
-border-radius: 10px;
-}  
-.div1{
-position:absolute;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-margin-top: 0px;
-padding-top: 0px;
-margin-left: 540px;
-width: 180px;
+<title>MELBA Daily Technical Inspection Checklist</title>
 
-}
-.div2{
-    position: absolute;
- margin-bottom: 0px;
-margin-top: 0px;
-margin-left: 3px;
-padding: 0px;
-box-sizing: 0px;
+<style>
+* {
+    box-sizing: border-box;
 }
 
-.cont{
-     border: 1px solid;
-    position: relative;
-height: 110px;
-width: 755px;
-border-radius: 5px;
+body {
+    background-color: #000080;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 15px;
 }
-.col1{height: 470px;width: 275px;position: absolute;margin-left: 5px;margin-top: 20px;}
-.col2{height: 470px;width: 50px;position: absolute;margin-left: 283px;margin-top: 20px;}
-.col3{height: 470px;width: 50px;position: absolute;margin-left: 345px;margin-top: 20px;}
-.col4{height: 470px;width: 340px;position: absolute;margin-left:410px;margin-top: 20px;}
-.col11{height: 20px;width: 275px;position: absolute;margin-left: 10px;}
-.col22{height: 20px;width: 50px;position: absolute;margin-left: 283px;}
-.col33{height: 20px;width: 50px;position: absolute;margin-left: 345px;}
-.col44{height: 20px;width: 340px;position: absolute;margin-left:480px;}
-input{
-    margin: 0px;
-}
-textarea{
-    margin: 0px;
-    padding: 0px;
-  
-}
-#submit{
-position: absolute;
-    margin-left: 200px;
-    margin-top: 650px;
-    background-color: rgb(9, 240, 163);
-    border-radius: 5px;
-    border-style: inset;
-    cursor: pointer;
-    padding: 5px 15px;
-}
-#submit:hover{
-    background-color: rgb(216, 6, 76);
+
+.back-link {
     color: white;
-    box-shadow: inset;
+    display: inline-block;
+    margin-bottom: 10px;
 }
-    </style>
+
+.mainc {
+    border: 2px solid blue;
+    background-color: rgb(227, 239, 238);
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.cont {
+    border: 1px solid #333;
+    min-height: 115px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px;
+}
+
+.div2 {
+    flex: 1;
+}
+
+.div2 h4 {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.div1 {
+    width: 225px;
+    flex-shrink: 0;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+h4.department {
+    margin-bottom: 8px;
+}
+
+.checklist-title {
+    text-align: center;
+    text-decoration: underline;
+    margin: 12px 0;
+}
+
+.machine-info {
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.info-row:last-child {
+    margin-bottom: 0;
+}
+
+.info-row label {
+    width: 155px;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+.info-row input,
+.info-row textarea {
+    flex: 1;
+    min-width: 0;
+    padding: 7px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.inspectors-row textarea {
+    resize: vertical;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    table-layout: fixed;
+}
+
+th, td {
+    border: 1px solid #777;
+    padding: 7px 5px;
+    font-size: 13px;
+}
+
+th {
+    background: #d4e4f4;
+    text-align: center;
+}
+
+th:first-child {
+    width: 34%;
+}
+
+th:nth-child(2),
+th:nth-child(3) {
+    width: 7%;
+}
+
+th:last-child {
+    width: 52%;
+}
+
+td:first-child {
+    overflow-wrap: anywhere;
+}
+
+.status-cell {
+    text-align: center;
+}
+
+.status-cell input {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.remark-input {
+    width: 100%;
+    min-height: 30px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 18px 0 8px;
+}
+
+.action-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#submit {
+    background: rgb(9, 240, 163);
+}
+
+#submit:hover {
+    background: #00c98a;
+}
+
+#submit:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+#resetBtn {
+    background: #e4e4e4;
+}
+
+#printBtn {
+    background: #1976d2;
+    color: white;
+}
+
+#formStatus {
+    text-align: center;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 6px;
+    }
+
+    .mainc {
+        padding: 7px;
+    }
+
+    .cont {
+        flex-direction: column;
+    }
+
+    .div1 {
+        width: 100%;
+        border-top: 1px solid #aaa;
+        padding-top: 6px;
+    }
+
+    .info-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .info-row label {
+        width: 100%;
+    }
+
+    .info-row input,
+    .info-row textarea {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 5px 3px;
+        font-size: 11px;
+    }
+
+    th:first-child {
+        width: 38%;
+    }
+
+    th:nth-child(2),
+    th:nth-child(3) {
+        width: 9%;
+    }
+
+    th:last-child {
+        width: 44%;
+    }
+}
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 8mm;
+    }
+
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .back-link,
+    .action-buttons,
+    #formStatus {
+        display: none !important;
+    }
+
+    .mainc {
+        width: 100%;
+        max-width: none;
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 0;
+    }
+
+    .cont {
+        min-height: 90px;
+    }
+
+    .div2 h4 {
+        font-size: 12px;
+    }
+
+    .div1 {
+        font-size: 9px;
+        width: 180px;
+    }
+
+    .machine-info {
+        padding: 6px;
+        margin: 5px 0;
+    }
+
+    .info-row {
+        margin-bottom: 5px;
+    }
+
+    .info-row label,
+    .info-row input,
+    .info-row textarea {
+        font-size: 10px;
+    }
+
+    th, td {
+        font-size: 9px;
+        padding: 4px;
+    }
+
+    .remark-input {
+        min-height: 22px;
+        font-size: 9px;
+    }
+
+    tr {
+        break-inside: avoid;
+    }
+}
+</style>
 </head>
+
 <body>
-        <a href="https://etachali2-prog.github.io/all/"style="color:white;">BACK</a>
-    <!-- Wrapped inside a form tag -->
-    <form id="checklistForm">
-        <div class="mainc">
-            <div class="cont">
-                <div class="div2"> 
-                    <h4>  W.A. PIRINTIINGII, PABLIISHIINGII FI PAAKEEJINGII MEELBAA<br>
-                    ሜልባ ፕሪንቲንግ፤ ፓብሊሺንግ፤ እና ፓኬጂንግ አ.ማ<br>
-                    MELBA PRINTING, PUBLISHING AND PACKAGING S.C.   </h4>
-                </div>
-                <div class="div1">
-                    CL/MPP/TD/001<br>
-                    Issue No:01<br>
-                    Issue Date: 16/6/2026<br>
-                    Daily Technical Inspection Checklist    Page: 1 of 1
-                </div>
-            </div>
-            
-            <h4>Department:-Technical Department</h4>
-            <h4 style="text-align: center;"><u>Daily Technical Inspection Checklist</u></h4>
 
-            <div class="col11"><u>Inspection Item</u></div>
-            <div class="col22"><u>Ok</u></div>
-            <div class="col33"><u>Not</u></div>
-            <div class="col44"><u>Remarks</u></div>
+<a class="back-link"
+   href="https://etachali2-prog.github.io/all/">
+   &larr; BACK
+</a>
 
-            <div class="col1">
-                <label data-index="1">1.Machine cleanliness</label><br><br>
-                <label data-index="2">2.Oil levels checked</label><br><br>
-                <label data-index="3">3.Coolant level checked</label><br><br>
-                <label data-index="4">4.Hydraulic oil level normal</label><br><br>
-                <label data-index="5">5.Air pressure normal</label><br><br>
-                <label data-index="6">6.Electrical cables safe</label><br><br>
-                <label data-index="7">7.Emergency stop working</label><br><br>
-                <label data-index="8">8.Safety guards installed</label><br><br>
-                <label data-index="9">9.No oil/fuel leakage</label><br><br>
-                <label data-index="10">10.Lubrication completed</label><br><br>
-                <label data-index="11">11.Bolts/nuts tightened</label><br><br>
-                <label data-index="12">12.Warning lights functioning</label><br><br>
-                <label data-index="13">13.Unusual noise/vibration</label><br><br>
-                <label data-index="14">14.Control Panel</label><br><br>
-                <label data-index="15">15.Electric control System</label><br><br>
-                <label data-index="16">16.Temperature within normal </label><br><br>
-                <label data-index="17">17.Others</label>
-            </div>
+<form id="checklistForm">
 
-            <!-- Added class and index identification values -->
-            <div class="col2">
-                <input type="checkbox" class="ok-check" data-index="1"><br><br>
-                <input type="checkbox" class="ok-check" data-index="2"><br><br>
-                <input type="checkbox" class="ok-check" data-index="3"><br><br>
-                <input type="checkbox" class="ok-check" data-index="4"><br><br>
-                <input type="checkbox" class="ok-check" data-index="5"><br><br>
-                <input type="checkbox" class="ok-check" data-index="6"><br><br>
-                <input type="checkbox" class="ok-check" data-index="7"><br><br>
-                <input type="checkbox" class="ok-check" data-index="8"><br><br>
-                <input type="checkbox" class="ok-check" data-index="9"><br><br>
-                <input type="checkbox" class="ok-check" data-index="10"><br><br>
-                <input type="checkbox" class="ok-check" data-index="11"><br><br>
-                <input type="checkbox" class="ok-check" data-index="12"><br><br>
-                <input type="checkbox" class="ok-check" data-index="13"><br><br>
-                <input type="checkbox" class="ok-check" data-index="14"><br><br>
-                <input type="checkbox" class="ok-check" data-index="15"><br><br>
-                <input type="checkbox" class="ok-check" data-index="16"><br><br>
-                <input type="checkbox" class="ok-check" data-index="17">
-            </div>
+<div class="mainc">
 
-            <div class="col3">
-                <input type="checkbox" class="not-check" data-index="1"><br><br>
-                <input type="checkbox" class="not-check" data-index="2"><br><br>
-                <input type="checkbox" class="not-check" data-index="3"><br><br>
-                <input type="checkbox" class="not-check" data-index="4"><br><br>
-                <input type="checkbox" class="not-check" data-index="5"><br><br>
-                <input type="checkbox" class="not-check" data-index="6"><br><br>
-                <input type="checkbox" class="not-check" data-index="7"><br><br>
-                <input type="checkbox" class="not-check" data-index="8"><br><br>
-                <input type="checkbox" class="not-check" data-index="9"><br><br>
-                <input type="checkbox" class="not-check" data-index="10"><br><br>
-                <input type="checkbox" class="not-check" data-index="11"><br><br>
-                <input type="checkbox" class="not-check" data-index="12"><br><br>
-                <input type="checkbox" class="not-check" data-index="13"><br><br>
-                <input type="checkbox" class="not-check" data-index="14"><br><br>
-                <input type="checkbox" class="not-check" data-index="15"><br><br>
-                <input type="checkbox" class="not-check" data-index="16"><br><br>
-                <input type="checkbox" class="not-check" data-index="17">
-            </div>
+    <!-- Company Header -->
+    <div class="cont">
 
-            <div class="col4">
-                <textarea class="remark-input" data-index="1" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="2" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="3" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="4" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="5" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="6" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="7" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="8" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="9" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="10" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="11" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="12" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="13" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="14" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="15" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="16" style="width: 320px;height: 10px;"></textarea><br><br>
-                <textarea class="remark-input" data-index="17" style="width: 320px;height: 10px;"></textarea><br><br>
-            </div>
-            
-            <input id="submit" type="submit" value="Submit">
+        <div class="div2">
+            <h4>
+                W.A. PIRINTIINGII, PABLIISHIINGII FI PAAKEEJINGII MEELBAA<br>
+                ሜልባ ፕሪንቲንግ፤ ፓብሊሺንግ፤ እና ፓኬጂንግ አ.ማ<br>
+                MELBA PRINTING, PUBLISHING AND PACKAGING S.C.
+            </h4>
         </div>
-    </form>
 
-    <!-- Submission Handler Script -->
-    <script>
-        document.getElementById('checklistForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        <div class="div1">
+            <strong>CL/MPP/TD/001</strong><br>
+            Issue No: 01<br>
+            Issue Date: 16/6/2026<br>
+            Daily Technical Inspection Checklist<br>
+            Page: 1 of 1
+        </div>
 
-            const submitBtn = document.getElementById('submit');
-            submitBtn.value = "Sending...";
-            submitBtn.disabled = true;
+    </div>
 
-            const payload = {
-                "Timestamp": new Date().toLocaleString()
-            };
+    <h4 class="department">Department: Technical Department</h4>
 
-            // Loop through all 17 elements and build neat data keys
-            for (let i = 1; i <= 17; i++) {
-                const labelElement = document.querySelector(`.col1 label[data-index="${i}"]`);
-                if (!labelElement) continue;
-                
-                const labelText = labelElement.textContent.trim();
-                const okChecked = document.querySelector(`.ok-check[data-index="${i}"]`).checked;
-                const notChecked = document.querySelector(`.not-check[data-index="${i}"]`).checked;
-                const remarkValue = document.querySelector(`.remark-input[data-index="${i}"]`).value.trim();
+    <h4 class="checklist-title">
+        Daily Technical Inspection Checklist
+    </h4>
 
-                // Formulate Status String
-                let status = "N/A";
-                if (okChecked && notChecked) status = "Ok & Not Ok";
-                else if (okChecked) status = "Ok";
-                else if (notChecked) status = "Not Ok";
+    <!-- Machine Information -->
+    <div class="machine-info">
 
-                payload[`${labelText} [Status]`] = status;
-                payload[`${labelText} [Remarks]`] = remarkValue;
-            }
+        <div class="info-row">
+            <label for="machineName">
+                <strong>Machine Name:</strong>
+            </label>
+            <input
+                type="text"
+                id="machineName"
+                name="machineName"
+                placeholder="Enter machine name"
+                required
+            >
+        </div>
 
-            // Paste your deployed Google Apps Script URL below
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbzkxF9XjwJosK3E4kKQvbJ48i6PgJyWB-074iIJDSzGXCFm-e9GCOzn9oHOD89KZYwg/exec'; 
+        <div class="info-row">
+            <label for="inspectionDate">
+                <strong>Inspection Date:</strong>
+            </label>
+            <input
+                type="date"
+                id="inspectionDate"
+                name="inspectionDate"
+                required
+            >
+        </div>
 
-            fetch(scriptUrl, {
-                method: 'POST',
-                mode: 'no-cors', // Solves typical redirect and CORS blocks
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(() => {
-                alert('Success! Inspection data has been recorded.');
-                document.getElementById('checklistForm').reset();
-                submitBtn.value = "Submit";
-                submitBtn.disabled = false;
-            })
-            .catch(error => {
-                console.error('Error submitting form:', error);
-                alert('Submission failed. Check developer console.');
-                submitBtn.value = "Submit";
-                submitBtn.disabled = false;
-            });
+        <div class="info-row inspectors-row">
+            <label for="inspectors">
+                <strong>List of Inspectors:</strong>
+            </label>
+            <textarea
+                id="inspectors"
+                name="inspectors"
+                rows="2"
+                placeholder="Enter inspectors' names"
+                required
+            ></textarea>
+        </div>
+
+    </div>
+
+    <!-- Inspection Checklist -->
+    <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Inspection Item</th>
+                    <th>OK</th>
+                    <th>Not OK</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+
+            <tbody id="checklistBody"></tbody>
+        </table>
+
+    </div>
+
+    <!-- Buttons -->
+    <div class="action-buttons">
+
+        <button type="submit" id="submit">
+            Submit
+        </button>
+
+        <button type="button" id="printBtn">
+            Print / Save PDF
+        </button>
+
+        <button type="reset" id="resetBtn">
+            Clear Form
+        </button>
+
+    </div>
+
+    <p id="formStatus" role="status"></p>
+
+</div>
+</form>
+
+<script>
+const inspectionItems = [
+    "Machine cleanliness",
+    "Oil levels checked",
+    "Coolant level checked",
+    "Hydraulic oil level normal",
+    "Air pressure normal",
+    "Electrical cables safe",
+    "Emergency stop working",
+    "Safety guards installed",
+    "No oil/fuel leakage",
+    "Lubrication completed",
+    "Bolts/nuts tightened",
+    "Warning lights functioning",
+    "Unusual noise/vibration",
+    "Control Panel",
+    "Electric control System",
+    "Temperature within normal range",
+    "Others"
+];
+
+const checklistBody = document.getElementById("checklistBody");
+
+/* Build the 17 checklist rows */
+inspectionItems.forEach((item, index) => {
+    const number = index + 1;
+
+    const row = document.createElement("tr");
+
+    const itemCell = document.createElement("td");
+    itemCell.textContent = number + ". " + item;
+
+    const okCell = document.createElement("td");
+    okCell.className = "status-cell";
+
+    const okInput = document.createElement("input");
+    okInput.type = "checkbox";
+    okInput.className = "ok-check";
+    okInput.dataset.index = number;
+    okInput.setAttribute("aria-label", item + " OK");
+
+    okCell.appendChild(okInput);
+
+    const notCell = document.createElement("td");
+    notCell.className = "status-cell";
+
+    const notInput = document.createElement("input");
+    notInput.type = "checkbox";
+    notInput.className = "not-check";
+    notInput.dataset.index = number;
+    notInput.setAttribute("aria-label", item + " Not OK");
+
+    notCell.appendChild(notInput);
+
+    const remarkCell = document.createElement("td");
+
+    const remarkInput = document.createElement("textarea");
+    remarkInput.className = "remark-input";
+    remarkInput.dataset.index = number;
+    remarkInput.rows = 1;
+    remarkInput.setAttribute("aria-label", item + " remarks");
+
+    remarkCell.appendChild(remarkInput);
+
+    row.append(itemCell, okCell, notCell, remarkCell);
+    checklistBody.appendChild(row);
+});
+
+/* OK and Not OK cannot both be selected for one item */
+document.querySelectorAll(".ok-check").forEach(input => {
+    input.addEventListener("change", function() {
+        if (this.checked) {
+            document.querySelector(
+                '.not-check[data-index="' + this.dataset.index + '"]'
+            ).checked = false;
+        }
+    });
+});
+
+document.querySelectorAll(".not-check").forEach(input => {
+    input.addEventListener("change", function() {
+        if (this.checked) {
+            document.querySelector(
+                '.ok-check[data-index="' + this.dataset.index + '"]'
+            ).checked = false;
+        }
+    });
+});
+
+/* Default inspection date to today */
+document.getElementById("inspectionDate").value =
+    new Date().getFullYear() + "-" +
+    String(new Date().getMonth() + 1).padStart(2, "0") + "-" +
+    String(new Date().getDate()).padStart(2, "0");
+
+/* Print or save as PDF */
+document.getElementById("printBtn").addEventListener("click", function() {
+    window.print();
+});
+
+/* Google Apps Script Web App URL */
+const scriptUrl =
+    "https://script.google.com/macros/s/AKfycbzkxF9XjwJosK3E4kKQvbJ48i6PgJyWB-074iIJDSzGXCFm-e9GCOzn9oHOD89KZYwg/exec";
+
+/* Submit checklist */
+document.getElementById("checklistForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById("submit");
+    const statusMessage = document.getElementById("formStatus");
+
+    if (submitBtn.disabled) return;
+
+    const payload = {
+        "Timestamp": new Date().toLocaleString(),
+        "Machine Name": document.getElementById("machineName").value.trim(),
+        "Inspection Date": document.getElementById("inspectionDate").value,
+        "List of Inspectors": document.getElementById("inspectors").value.trim()
+    };
+
+    /* Collect all inspection results */
+    for (let i = 1; i <= inspectionItems.length; i++) {
+        const okChecked = document.querySelector(
+            '.ok-check[data-index="' + i + '"]'
+        ).checked;
+
+        const notChecked = document.querySelector(
+            '.not-check[data-index="' + i + '"]'
+        ).checked;
+
+        const remarkValue = document.querySelector(
+            '.remark-input[data-index="' + i + '"]'
+        ).value.trim();
+
+        let inspectionStatus = "Not Checked";
+
+        if (okChecked) {
+            inspectionStatus = "OK";
+        } else if (notChecked) {
+            inspectionStatus = "Not OK";
+        }
+
+        const itemName = inspectionItems[i - 1];
+
+        payload[itemName + " [Status]"] = inspectionStatus;
+        payload[itemName + " [Remarks]"] = remarkValue;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    statusMessage.textContent = "Submitting inspection data...";
+
+    try {
+        /*
+          no-cors mode cannot confirm whether Google Sheets
+          actually saved the record.
+        */
+        await fetch(scriptUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(payload)
         });
-    </script>
+
+        statusMessage.textContent =
+            "Submission request sent. Please verify the new record in Google Sheets.";
+
+        statusMessage.style.color = "#075c36";
+
+        alert(
+            "The submission request was sent. " +
+            "Because no-cors mode is enabled, the browser cannot confirm " +
+            "that Google Sheets saved the record. Please verify the sheet."
+        );
+
+        /*
+          Keep the form data visible until you verify the record.
+          This avoids losing entered inspection information.
+        */
+
+    } catch (error) {
+        console.error("Submission error:", error);
+
+        statusMessage.textContent =
+            "Unable to send the submission. Check your internet connection and try again.";
+
+        statusMessage.style.color = "red";
+
+        alert("Submission failed. Please try again.");
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit";
+    }
+});
+
+/* Clear form */
+document.getElementById("checklistForm").addEventListener("reset", function() {
+    setTimeout(() => {
+        const today = new Date();
+
+        document.getElementById("inspectionDate").value =
+            today.getFullYear() + "-" +
+            String(today.getMonth() + 1).padStart(2, "0") + "-" +
+            String(today.getDate()).padStart(2, "0");
+
+        document.getElementById("formStatus").textContent = "";
+    }, 0);
+});
+</script>
+
 </body>
 </html>
